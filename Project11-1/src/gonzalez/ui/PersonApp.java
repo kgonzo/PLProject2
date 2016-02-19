@@ -59,6 +59,7 @@ public class PersonApp {
                 tempcont_choice = Console.getString("Continue? (y/n): ");
                 Console.displayLine();
             }
+            cont_choice = tempcont_choice;
         }
     }
 }
