@@ -20,6 +20,7 @@ public class AccountApp {
 
         String cont = "y";
         String trans;
+        String tempcont;
         while("y".equals(cont)) {
             trans = Console.getString("\nWithdrawal or deposit? (w/d): ");
             if("w".equals(trans)) {
@@ -31,7 +32,18 @@ public class AccountApp {
             } else {
                 System.out.println("Error! Unexpected Input.\n");
             }
-            cont = Console.getString("\nContinue? (y/n): ");
+            Console.displayLine();
+            tempcont = Console.getString("Continue? (y/n): ");
+            Console.displayLine();
+
+            while (!tempcont.equalsIgnoreCase("y") && !tempcont.equalsIgnoreCase("n")) {
+                Console.displayLine("Invalid response.");
+                Console.displayLine();
+                tempcont = Console.getString("Continue? (y/n): ");
+                Console.displayLine();
+            }
+            cont = tempcont;
+            //cont = Console.getString("\nContinue? (y/n): ");
         }
         System.out.println("\nMonthly Fees\nChecking fee:\t"+account.getMonthlyFeeFormatted());
         System.out.println("\nFinal Balance\nChecking: "+account.getBalanceFormatted());
